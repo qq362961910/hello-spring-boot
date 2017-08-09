@@ -1,6 +1,13 @@
-package com.jy;
+package com.jy.controller;
 
+import com.jy.controller.valid.group.Insert;
+import com.jy.controller.valid.group.Update;
+import com.jy.dao.GirlRepository;
+import com.jy.entity.Girl;
+import com.jy.enums.ErrorCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping(value = "girl")
@@ -21,19 +28,20 @@ public class GirlController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public Object newGirl(@RequestParam(value = "cupSize") String cupSize, @RequestParam(value = "age") Integer age) {
-        Girl girl = new Girl();
-        girl.setCupSize(cupSize);
-        girl.setAge(age);
+    public Object newGirl(@Validated(Insert.class) Girl girl, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            System.out.println(ErrorCode.getDescribe(bindingResult.getFieldError().getDefaultMessage()));
+            return bindingResult.getFieldError().getDefaultMessage();
+        }
         return girlRepository.save(girl);
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
-    public Object updateGirl(@RequestParam(value = "cupSize") String cupSize, @RequestParam(value = "age") Integer age, @PathVariable(value = "id") Long id) {
-        Girl girl = new Girl();
-        girl.setId(id);
-        girl.setCupSize(cupSize);
-        girl.setAge(age);
+    @RequestMapping(value = "", method = RequestMethod.PUT)
+    public Object updateGirl(@Validated(Update.class) Girl girl, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            System.out.println(ErrorCode.getDescribe(bindingResult.getFieldError().getDefaultMessage()));
+            return bindingResult.getFieldError().getDefaultMessage();
+        }
         return girlRepository.save(girl);
     }
 

@@ -1,4 +1,4 @@
-package com.jy;
+package com.jy.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
