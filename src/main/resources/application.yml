@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: prod
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.14.227:3306/blog?useSSL=false&amp;characterEncoding=UTF-8&amp;createDatabaseIfNotExist=true&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC
+    username: blog
+    password: blog
+  jpa:
+    hibernate:
+      ddl-auto: update #create每次先删除表在创建表, update最常用,没有就创建有就不动
+    show-sql: true
