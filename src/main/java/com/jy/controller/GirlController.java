@@ -4,7 +4,7 @@ import com.jy.controller.valid.group.Insert;
 import com.jy.controller.valid.group.Update;
 import com.jy.dao.GirlRepository;
 import com.jy.entity.Girl;
-import com.jy.enums.ErrorCode;
+import com.jy.constants.ErrorCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;

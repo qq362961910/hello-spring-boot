@@ -1,4 +1,4 @@
-package com.jy.enums;
+package com.jy.constants;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

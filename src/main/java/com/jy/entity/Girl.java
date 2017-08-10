@@ -3,7 +3,7 @@ package com.jy.entity;
 import com.jy.controller.valid.anno.Password;
 import com.jy.controller.valid.group.Insert;
 import com.jy.controller.valid.group.Update;
-import com.jy.enums.ErrorCode;
+import com.jy.constants.ErrorCode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
